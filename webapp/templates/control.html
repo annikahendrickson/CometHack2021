@@ -1,0 +1,137 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+        $(function() {
+          $('a#btnup').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/tempup',
+                function(data){
+              //do nothing
+            });
+		window.location.href = "/tempup";
+            return false;
+          });
+        });
+	$(function() {
+          $('a#btndown').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/tempdown',
+                function(data) {
+              //do nothing
+            });
+		window.location.href = "/tempdown";
+            return false;
+          });
+        });
+	$(function() {
+          $('a#btnupdate').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/update',
+                function(data) {
+              //do nothing
+            });
+                window.location.href = "/update";
+            return false;
+          });
+        });
+
+</script>
+
+<style>
+.container {
+background-color: #1c2030;
+height: 2000px;
+}
+.parent {
+    margin-bottom: 15px;
+    padding: 10px;
+    clear:both;
+	font-size: 300%;
+	font-family:verdana;
+align: center;
+}
+.left, .center, .right{
+    float:left;
+    width:32%;
+	color: #FFFFFF;
+    border:0px solid #CEDCEA; 
+    padding:5px;
+
+}
+.cente {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+margin-bottom: 30px;
+  width: 50%;
+}
+</style>
+
+<div class="container">
+	<div class="parent">
+    <div class="left">
+        <pre> Outside Temperature: {{ outside }}</pre>
+    </div>
+    <div class="center">
+
+    </div>
+    <div class="right">
+<pre> Fan {{ fanStatus }}</pre>
+    </div>
+    <div style="clear:both;"></div>
+	</div>
+
+
+<div class="parent">
+    <div class="left">
+<pre> Inside Temperature: {{ inside }}</pre>
+    </div>
+    <div class="center">
+
+    </div>
+    <div class="right">
+<pre> AC {{ acStatus }}</pre>
+    </div>
+    <div style="clear:both;"></div>
+        </div>
+
+
+
+<div class="parent">
+    <div class="left">
+
+<pre> Set Temperature: {{ setTo }}</pre>
+
+    </div>
+    <div class="center">
+        
+    </div>
+    <div class="right">
+
+<pre> Heat {{ heatStatus }}</pre>
+
+    </div>
+    <div style="clear:both;"></div>
+        </div>
+
+<div class="parent">
+    <div class="left">
+	<form>
+            <a href=# id=btnup><button style="font-size: 50%;width:240px;height:60px;border-radius: 10px;margin-left:100px;background-color:#FFFFFF;color:#1c2030;font-weight:bold;">Raise Temperature</button></a>
+        </form>
+    </div>
+    <div class="center">
+<form>
+            <a href=# id=btndown><button style="font-size: 50%;width:260px;height:60px;border-radius: 10px;margin-left:100px;background-color:#FFFFFF;color:#1c2030;font-weight:bold;">Lower Temperature</button></a>
+        </form>
+    </div>
+    <div class="right">
+       <form>
+            <a href=# id=btnupdate><button style="font-size: 50%;width:200px;height:60px;border-radius: 10px;margin-left:100px;background-color:#FFFFFF;color:#1c2030; font-weight:bold;">Update</button></a>
+        </form>
+    </div>
+    <div style="clear:both;"></div>
+        </div>
+
+	<img class="cente" src="{{url_for('static', filename='graph1.png')}}" alt="pic one">
+	<img class="cente" src="{{url_for('static', filename='graph2.png')}}" alt="pic two">
+</div>
