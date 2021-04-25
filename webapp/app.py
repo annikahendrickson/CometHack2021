@@ -4,7 +4,7 @@ import requests, json
 from datetime import datetime
 
 #variables
-api_key = "92cd84157c7aa552b85f271e4e7b7841"
+api_key = ""
 base_url = "http://api.openweathermap.org/data/2.5/onecall?"
 lat = "32.95"
 lon = "-96.73"
